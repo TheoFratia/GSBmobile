@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gsb_frais.databinding.ActivityHomeBinding;
@@ -19,6 +21,7 @@ import retrofit2.Response;
 public class Home extends AppCompatActivity {
 
     ActivityHomeBinding binding;
+    Visiteur leVisiteur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,14 @@ public class Home extends AppCompatActivity {
                 Visiteurs visiteurs = response.body();
                 for (Visiteur visiteur : visiteurs.getVisiteurs()){
                     if(visiteur.getEmail().equals(mail)){
+                        leVisiteur = visiteur;
+                        //binding.Nom.setText(visiteur.getVis_nom());
+                        //binding.Prenom.setText(visiteur.getVis_prenom());
+                        TextView tvnom = findViewById(R.id.Nom);
+                        tvnom.setText(visiteur.getVis_nom());
+                        TextView tvprenom = findViewById(R.id.Prenom);
+                        tvprenom.setText(visiteur.getVis_prenom());
+                        Log.v("Nom", visiteur.getVis_nom());
 
                     }
                 }
