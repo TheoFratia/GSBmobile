@@ -15,4 +15,7 @@ public interface GsbServices {
 
     @POST("visiteurs")
     Call<Visiteur> creatVisiteur(@Body Visiteur visiteur);
+
+    @GET("visiteurs/{id}")
+    Call<Visiteurs> getVisiteur(@Header("Authorization")String autorization);
 }

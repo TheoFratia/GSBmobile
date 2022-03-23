@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Visiteurs implements Serializable {
-    @SerializedName("visiteurs") //notation retrofit2
+    @SerializedName("hydra:member") //notation retrofit2
     private List<Visiteur> visiteurs;
 
     public Visiteurs(List<Visiteur> visiteurs) {
