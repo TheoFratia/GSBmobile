@@ -43,13 +43,15 @@ public class Home extends AppCompatActivity {
                 for (Visiteur visiteur : visiteurs.getVisiteurs()){
                     if(visiteur.getEmail().equals(mail)){
                         leVisiteur = visiteur;
-                        //binding.Nom.setText(visiteur.getVis_nom());
-                        //binding.Prenom.setText(visiteur.getVis_prenom());
+
                         TextView tvnom = findViewById(R.id.Nom);
                         tvnom.setText(visiteur.getVis_nom());
+
                         TextView tvprenom = findViewById(R.id.Prenom);
                         tvprenom.setText(visiteur.getVis_prenom());
-                        Log.v("Nom", visiteur.getVis_nom());
+
+                        TextView tvtel = findViewById(R.id.Tel);
+                        tvtel.setText(visiteur.getVis_tel());
 
                     }
                 }
