@@ -39,7 +39,15 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:background="@drawable/rounded"
-
         android:text="Connexion"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/inscription"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded"
+        android:text="Inscription"/>
 
 </LinearLayout>

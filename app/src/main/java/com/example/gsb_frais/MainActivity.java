@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                             home.putExtra("token",token.getToken());
                             home.putExtra("mail",username);
                             startActivity(home);
-                            //Toast.makeText(MainActivity.this, token.getToken(), Toast.LENGTH_SHORT).show();
                         }
                         else if(response.code() == 401){
                             Toast.makeText(MainActivity.this, "Erreur de login/mot de passe", Toast.LENGTH_SHORT).show();

@@ -5,6 +5,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface GsbServices {
     @GET("visiteurs")
@@ -18,4 +19,7 @@ public interface GsbServices {
 
     @GET("visiteurs/{id}")
     Call<Visiteurs> getVisiteur(@Header("Authorization")String autorization);
+
+    @GET("praticiens/{id}")
+    Call<Praticien> getPracticien(@Header("Authorization")String autorization, @Path("id") int id);
 }

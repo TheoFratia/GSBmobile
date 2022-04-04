@@ -1,6 +1,7 @@
 package com.example.gsb_frais;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,13 +23,15 @@ public class Home extends AppCompatActivity {
 
     ActivityHomeBinding binding;
     Visiteur leVisiteur;
+    private RecyclerView recyclerViewPraticiens;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_home);
         View view = binding.getRoot();
+        setContentView(view);
+
 
         String token = getIntent().getExtras().getString("token");
         String mail = getIntent().getExtras().getString("mail");
@@ -43,15 +46,15 @@ public class Home extends AppCompatActivity {
                 for (Visiteur visiteur : visiteurs.getVisiteurs()){
                     if(visiteur.getEmail().equals(mail)){
                         leVisiteur = visiteur;
-
                         TextView tvnom = findViewById(R.id.Nom);
                         tvnom.setText(visiteur.getVis_nom());
-
                         TextView tvprenom = findViewById(R.id.Prenom);
                         tvprenom.setText(visiteur.getVis_prenom());
-
                         TextView tvtel = findViewById(R.id.Tel);
                         tvtel.setText(visiteur.getVis_tel());
+                        TextView tvmail = findViewById(R.id.Mail);
+                        tvmail.setText(mail);
+
 
                     }
                 }
