@@ -21,7 +21,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Home extends AppCompatActivity {
-
     ActivityHomeBinding binding;
     Visiteur leVisiteur;
     private RecyclerView recyclerViewPraticiens;

@@ -56,5 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
                 }
         });
+
+        binding.inscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inscription = new Intent(MainActivity.this, Inscription.class);
+                startActivity(inscription);
+            }
+        });
     }
 }

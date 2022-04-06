@@ -29,10 +29,19 @@ public class Visiteur  implements Serializable {
 
     private ArrayList<Praticien> lesPraticiens;
 
-    public Visiteur(String username, String password) {
-        this.username = username;
+    public Visiteur(String nom, String prenom, String email, String password, String tel ){
         this.password = password;
+        this.vis_nom = nom;
+        this.vis_prenom = prenom;
+        this.email = email;
+        this.vis_tel = tel;
     }
+
+    public Visiteur(String email, String password ){
+        this.password = password;
+        this.email = email;
+    }
+
     public void add(Praticien unPraticien){
         if(lesPraticiens == null){
             lesPraticiens = new ArrayList<>();
