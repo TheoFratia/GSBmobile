@@ -14,8 +14,8 @@ public interface GsbServices {
     @POST("login_check")
     Call<Token> getToken(@Body Visiteur visiteur);
 
-    @GET("visiteurs/{id}")
-    Call<Visiteurs> getVisiteur(@Header("Authorization")String autorization);
+    @GET("visites/{id}")
+    Call<Visites> getVisites(@Header("Authorization") String authorization, @Path("id") int id);
 
     @GET("praticiens/{id}")
     Call<Praticien> getPracticien(@Header("Authorization")String autorization, @Path("id") int id);

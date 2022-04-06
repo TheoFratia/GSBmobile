@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gsb_frais"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PraticienActivity"></activity>
+        <activity android:name=".VisitesActivity"></activity>
         <activity android:name=".Inscription" />
         <activity android:name=".Home" />
         <activity android:name=".MainActivity">
