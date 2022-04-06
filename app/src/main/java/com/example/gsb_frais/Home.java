@@ -95,7 +95,7 @@ public class Home extends AppCompatActivity {
         binding.Praticiens.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), binding.Praticiens, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Intent praticien = new Intent(Home.this, PraticienActivity.class);
+                Intent praticien = new Intent(Home.this, VisitesActivity.class);
                 Praticien lePraticien = leVisiteur.getLesPraticiens().get(position);
                 praticien.putExtra("praticien", lePraticien);
                 praticien.putExtra("token", token);

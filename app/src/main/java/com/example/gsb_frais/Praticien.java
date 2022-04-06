@@ -3,6 +3,8 @@ package com.example.gsb_frais;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Praticien implements Serializable {
 
@@ -24,6 +26,9 @@ public class Praticien implements Serializable {
     private String pra_ville;
     @SerializedName("pra_coef_notoriete")
     private Integer pra_coef_notoriete;
+    @SerializedName("pra_visites")
+    private List<String> visites;
+    private ArrayList<Visites> lesVisites;
 
     public Praticien(Integer id, String pra_nom, String pra_prenom, String pra_tel, String pra_mail, String pra_rue, String pra_code_postale, String pra_ville, Integer pra_coef_notoriete) {
         this.id = id;
@@ -35,6 +40,13 @@ public class Praticien implements Serializable {
         this.pra_code_postale = pra_code_postale;
         this.pra_ville = pra_ville;
         this.pra_coef_notoriete = pra_coef_notoriete;
+    }
+
+    public void add(Visites uneVisite){
+        if(lesVisites == null){
+            lesVisites = new ArrayList<>();
+        }
+        lesVisites.add(uneVisite);
     }
 
     public Integer getId() {
@@ -107,5 +119,17 @@ public class Praticien implements Serializable {
 
     public void setPra_coef_notoriete(Integer pra_coef_notoriete) {
         this.pra_coef_notoriete = pra_coef_notoriete;
+    }
+
+    public List<String> getVisites() {
+        return visites;
+    }
+
+    public ArrayList<Visites> getLesVisites() {
+        return lesVisites;
+    }
+
+    public void setVisites(List<String> visites) {
+        this.visites = visites;
     }
 }

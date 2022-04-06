@@ -40,6 +40,7 @@ public class Visiteur  implements Serializable {
     public Visiteur(String email, String password ){
         this.password = password;
         this.email = email;
+        this.username =email;
     }
 
     public void add(Praticien unPraticien){
