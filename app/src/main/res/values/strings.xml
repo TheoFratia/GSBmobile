@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">gsb_frais</string>
+    <string name="Praticiens"><u>List des praticiens</u></string>
 </resources>

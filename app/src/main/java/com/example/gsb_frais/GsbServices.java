@@ -22,4 +22,7 @@ public interface GsbServices {
 
     @GET("praticiens/{id}")
     Call<Praticien> getPracticien(@Header("Authorization")String autorization, @Path("id") int id);
+
+    @GET("praticiens/{id}")
+    Call<Praticien> getPraticien(@Header("Authorization") String authorization, @Path("id") int id);
 }

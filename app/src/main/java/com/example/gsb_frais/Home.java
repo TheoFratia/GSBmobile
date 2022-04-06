@@ -1,6 +1,7 @@
 package com.example.gsb_frais;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -54,8 +55,34 @@ public class Home extends AppCompatActivity {
                         tvtel.setText(visiteur.getVis_tel());
                         TextView tvmail = findViewById(R.id.Mail);
                         tvmail.setText(mail);
+                        for (String praticien : visiteur.getPraticien()){
+                            praticien = praticien.substring(16);
+                            int unPraticien = Integer.parseInt(praticien);
+                            GsbServices service = RetrofitClientInstance.getRetrofitInstance().create(GsbServices.class);
+                            Call<Praticien> call1 = service.getPraticien("Bearer " + token ,unPraticien);
+                            call1.enqueue(new Callback<Praticien>() {
+                                @Override
+                                public void onResponse(Call<Praticien> call, Response<Praticien> response) {
+                                    Praticien praticien = response.body();
+                                    leVisiteur.add(praticien);
+                                    if (leVisiteur != null){
+                                        if (leVisiteur.getLesPraticiens().size() == leVisiteur.getPraticien().size()){
+                                            binding.Praticiens.setHasFixedSize(true);
+                                            LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+                                            binding.Praticiens.setLayoutManager(layoutManager);
+                                            binding.Praticiens.setFocusable(false);
+                                            GsbRvAdapter myAdapter = new GsbRvAdapter(leVisiteur.getLesPraticiens());
+                                            binding.Praticiens.setAdapter(myAdapter);
+                                        }
+                                    }
+                                }
 
+                                @Override
+                                public void onFailure(Call<Praticien> call, Throwable t) {
 
+                                }
+                            });
+                        }
                     }
                 }
             }
@@ -65,5 +92,16 @@ public class Home extends AppCompatActivity {
                 Toast.makeText(Home.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        binding.Praticiens.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), binding.Praticiens, new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Intent praticien = new Intent(Home.this, PraticienActivity.class);
+                Praticien lePraticien = leVisiteur.getLesPraticiens().get(position);
+                praticien.putExtra("praticien", lePraticien);
+                praticien.putExtra("token", token);
+                startActivity(praticien);
+            }
+        }));
     }
 }

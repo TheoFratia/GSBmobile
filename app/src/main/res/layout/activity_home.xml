@@ -24,6 +24,7 @@
             android:id="@+id/Nom"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@+id/Nom"
@@ -59,9 +60,21 @@
             android:text="@+id/Mail"
             />
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/Praticiens"
+        android:layout_marginLeft="5dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Praticiens">
 
     </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

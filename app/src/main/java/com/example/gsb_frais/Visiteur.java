@@ -2,6 +2,8 @@ package com.example.gsb_frais;
 
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Visiteur  implements Serializable {
 
@@ -22,9 +24,23 @@ public class Visiteur  implements Serializable {
     @SerializedName("username")
     private String username;
 
+    @SerializedName("vis_praticiens")
+    private List<String> praticiens;
+
+    private ArrayList<Praticien> lesPraticiens;
+
     public Visiteur(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+    public void add(Praticien unPraticien){
+        if(lesPraticiens == null){
+            lesPraticiens = new ArrayList<>();
+        }
+        lesPraticiens.add(unPraticien);
+    }
+    public ArrayList<Praticien> getLesPraticiens() {
+        return lesPraticiens;
     }
 
     public Integer getId() {
@@ -89,5 +105,13 @@ public class Visiteur  implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public List<String> getPraticien() {
+        return praticiens;
+    }
+
+    public void setPraticien(List<String> praticiens) {
+        this.praticiens = praticiens;
     }
 }
