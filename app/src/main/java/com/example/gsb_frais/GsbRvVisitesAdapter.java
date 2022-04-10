@@ -36,7 +36,6 @@ public class GsbRvVisitesAdapter extends RecyclerView.Adapter<GsbRvVisitesAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.date_visite.setText(String.valueOf(dateModelList.get(position).getDate()));
         holder.commentaire.setText(String.valueOf(dateModelList.get(position).getCommentaire()));
-        holder.motif.setText(String.valueOf(dateModelList.get(position).getMotif()));
     }
 
     @Override
@@ -47,13 +46,12 @@ public class GsbRvVisitesAdapter extends RecyclerView.Adapter<GsbRvVisitesAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView date_visite, commentaire, motif;
+        private TextView date_visite, commentaire;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             date_visite = itemView.findViewById(R.id.dateVisites);
             commentaire = itemView.findViewById(R.id.commentaire);
-            motif = itemView.findViewById(R.id.motif);
         }
     }
 }
